@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caso 01: Un vigía que no se cansa — Alejandro de la Torre</title>
+<meta name="description" content="Pilota la capa de modos que diseñé para FE: un dron cautivo para barcos de recreo que maneja gente sin experiencia con drones.">
+<meta property="og:title" content="Caso 01: Un vigía que no se cansa">
+<meta property="og:description" content="Pilota la capa de modos que diseñé para FE sobre QGroundControl.">
+<meta property="og:image" content="../assets/img/fe/poster.jpg">
+<meta name="theme-color" content="#141313">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Work+Sans:ital,wght@0,400;0,500;1,400&family=Inter:wght@200;300;400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/mission.css">
+</head>
+<body class="case">
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="dot"></span>Alejandro de la Torre</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">MENÚ
+      <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 1H18M0 6H18M0 11H18" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+    <nav class="nav-links" id="nav-links" aria-label="Principal">
+      <a href="../#trabajo" aria-current="true">Trabajo</a>
+      <a href="../#sobre-mi">Sobre mí</a>
+      <a href="../#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="case-hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Caso 01 · FE · Lince Systems</p>
+        <h1 class="h-display">Un vigía que <span class="mark">no se cansa</span>.</h1>
+      </div>
+      <p class="lead">La capa de modos que convirtió QGroundControl en una herramienta que cualquiera puede operar desde la cubierta de un barco. Pruébala.</p>
+    </div>
+  </section>
+
+  <section class="mission" aria-label="Misión simulada">
+    <!-- Escritorio y móvil en horizontal -->
+    <div class="console" id="console">
+      <div class="m-top">
+        <span class="who"><span class="dot"></span>Caso 01 — FE</span>
+        <nav class="m-steps" id="m-steps" aria-label="Pasos de la misión"></nav>
+        <span class="m-flag" id="m-flag"><span class="dot"></span><span id="m-flag-text">UX Architect</span></span>
+      </div>
+      <div class="m-progress"><i id="m-progress"></i></div>
+      <div class="m-body" id="m-body">
+        <div class="m-screen" id="m-screen">
+          <div class="m-stage" id="m-stage"></div>
+          <div class="m-veil" id="m-veil"><div><p class="eyebrow" id="veil-eyebrow"></p><h2 id="veil-title"></h2></div></div>
+        </div>
+        <div class="m-strip">
+          <div class="m-mininav">
+            <button id="mini-prev" aria-label="Paso anterior">‹</button>
+            <div><span id="mini-count"></span><b id="mini-label"></b></div>
+            <button id="mini-next" aria-label="Paso siguiente">›</button>
+          </div>
+          <div class="m-text">
+            <p class="eyebrow m-eyebrow" id="s-eyebrow"></p>
+            <h2 id="s-title"></h2>
+            <p class="body" id="s-body"></p>
+          </div>
+          <div class="m-ctl" aria-live="polite">
+            <div data-ctl="intro">
+              <p class="m-hint" id="intro-hint"></p>
+              <button class="btn" id="intro-btn" style="align-self:flex-start"></button>
+            </div>
+            <div data-ctl="ondeck">
+              <div class="row">
+                <button class="btn-seq" id="arm">1 · Armar</button>
+                <button class="btn" id="continue" disabled>Continuar →</button>
+              </div>
+              <div class="slide">
+                <i id="slide-fill"></i>
+                <span id="slide-label">2 · Arma primero</span>
+                <input type="range" min="0" max="100" step="1" value="0" id="slider" disabled aria-label="Deslizar para despegar">
+              </div>
+            </div>
+            <div data-ctl="fishing">
+              <p class="m-hint" id="fish-hint"></p>
+              <div class="row">
+                <button class="btn" data-go="navigation">Ir a Navigation →</button>
+                <button class="btn-cut" data-cut>Cortar cable</button>
+              </div>
+            </div>
+            <div data-ctl="navigation">
+              <p class="m-hint" id="nav-hint"></p>
+              <p class="m-note" id="nav-note"></p>
+              <button class="btn-cut" data-cut>Cortar cable</button>
+            </div>
+            <div data-ctl="recovery">
+              <p class="m-hint" id="rec-hint"></p>
+              <p class="m-note">ABORT devuelve el dron al vuelo.</p>
+            </div>
+            <div data-ctl="alert">
+              <button class="btn-seq" id="alert-exit" style="align-self:flex-start"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Móvil en vertical -->
+    <div class="poster wrap">
+      <button class="poster-btn" id="poster-btn" aria-label="Pilotar la misión (requiere girar el móvil)">
+        <img src="../assets/img/fe/poster.jpg" alt="Pantalla Fishing de la integración de FE sobre QGroundControl, con cinco marcas en el minimapa" width="1922" height="1081">
+        <span class="play"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 2.2L11.5 7L3.5 11.8Z" fill="#C96A49"/></svg>Pilotar la misión</span>
+      </button>
+      <div class="rotate-card" id="rotate-card" role="status" aria-live="polite">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" style="flex-shrink:0">
+          <g class="phone"><rect x="13" y="6" width="18" height="30" rx="3.5" stroke="#F2F0EC" stroke-width="2"/><rect x="19" y="31" width="6" height="1.8" rx="0.9" fill="#F2F0EC"/></g>
+          <path d="M35 14 C40 18 40 26 35 30" stroke="#C96A49" stroke-width="2" stroke-linecap="round"/>
+          <path d="M33 27.5 L35.2 30.4 L38.4 28.6" stroke="#C96A49" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <strong>Gira el móvil para pilotarla</strong>
+          <p>La interfaz está diseñada para pantallas de 7″ o más, como la estación de control del cliente.</p>
+          <span class="lock">¿No gira? Comprueba que la rotación automática no esté bloqueada.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ficha" id="ficha">
+    <div class="wrap">
+      <div class="grid">
+        <div class="col">
+          <p class="eyebrow">Contexto</p>
+          <p class="lead" style="font-size:17px;color:var(--ink-2)">QGroundControl está pensado para pilotos con experiencia que planifican misiones con puntos de ruta. FE necesitaba que cualquiera a bordo de un barco de recreo, sin experiencia con drones, pudiera usar un dron cautivo como vigía durante la pesca deportiva.</p>
+        </div>
+        <div class="col">
+          <p class="eyebrow">Qué aporté</p>
+          <ol>
+            <li><span class="n">01</span><span><b>Modos en lugar de vistas genéricas.</b> Seis modos, cada uno ligado a una tarea concreta a bordo.</span></li>
+            <li><span class="n">02</span><span><b>Un único esqueleto de pantalla</b> que se mantiene en todos los modos y admite funciones futuras sin rediseñar.</span></li>
+            <li><span class="n">03</span><span><b>Los mismos botones, otra función.</b> En Fishing marcan lo que ve la cámara; en Navigation saltan de marca en marca.</span></li>
+            <li><span class="n">04</span><span><b>Seguridad en la interfaz:</b> activación secuencial, slider de despegue y GRAB bloqueado hasta la altura de agarre.</span></li>
+            <li><span class="n">05</span><span><b>Una jerarquía explícita.</b> Recovery se apaga cuando no tiene sentido; Man Overboard, nunca.</span></li>
+            <li><span class="n">06</span><span><b>Sistema de componentes</b> con variantes y estados, listo para desarrollo.</span></li>
+          </ol>
+        </div>
+      </div>
+      <div class="result">
+        <p class="eyebrow">Resultado</p>
+        <p>V0 en pruebas. El cliente destacó que personas sin ninguna experiencia con drones pudieran operarlo con sencillez.</p>
+      </div>
+      <a class="next-link" href="../#mas-alla"><span>Siguiente — Más allá del producto</span><span>→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="wrap"><span>© 2026 Alejandro de la Torre Zapardiel</span><span>Sistemas antes que píxeles</span></div></footer>
+
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/mission.js"></script>
+</body>
+</html>
